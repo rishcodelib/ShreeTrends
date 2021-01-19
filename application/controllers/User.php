@@ -413,9 +413,9 @@ class User extends CI_Controller
 	public function DispatchDetails($id)
 	{
 		if ($this->session->has_userdata('user') != Null) {
-		
+
 			$data['dispatchDetails'] = $this->Model->GetDispatchOrderDetails($id);
-		
+
 			$data['details'] = $this->Model->GetOrderDetails($id);
 			$head['title'] = 'Order Dispatch';
 			$this->load->view('assets/header.php', $head);
@@ -612,8 +612,19 @@ class User extends CI_Controller
 			$rish['CustomerName'] = $this->input->post('cust_name');
 			$rish['Cust_Email'] = $this->input->post('cust_email');
 			$rish['Cust_Address'] = nl2br($this->input->post('cust_address'));
-			$rish['Cust_phone'] = $this->input->post('cust_phone');
-			// $rish['status'] = 'CONFIRMED';
+
+			$Cust_Phone = $this->input->post('cust_phone');
+
+
+			$string = NULL;
+			if ($Cust_Phone[1] != NULL) {
+				foreach ($Cust_Phone as $nbr) {
+					$string .= $nbr . ",";
+				}
+				$rish['Cust_phone'] = $string;
+			} else {
+				$rish['Cust_phone'] = $Cust_Phone[0];
+			}
 			$rish['status'] = 'RECEIVED';
 			$rish['Comments'] = $this->input->post('Comments');
 			$where = array(
