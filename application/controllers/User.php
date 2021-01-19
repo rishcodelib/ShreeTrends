@@ -86,9 +86,9 @@ class User extends CI_Controller
 			if (isset($btn) != NULL) {
 				$uid = $this->session->userdata('user')->UserID;
 				$newpwd = $this->input->post('updatepassword');
-				// $this->Model->Updatepassword($newpwd, $uid);
-				// $this->session->set_flashdata('success', 'Password Updated Sucessfully');
-				$this->session->set_flashdata('success', 'Password Update Fetaure is Disabled due to TESTING , Feature Working fine');
+				$this->Model->Updatepassword($newpwd, $uid);
+				$this->session->set_flashdata('success', 'Password Updated Sucessfully');
+				// $this->session->set_flashdata('success', 'Password Update Fetaure is Disabled due to TESTING , Feature Working fine');
 				redirect("/User/settings");
 			} else {
 				$head['title'] = 'Item View';
