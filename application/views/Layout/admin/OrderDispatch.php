@@ -49,7 +49,7 @@
 					</div>
 					<div class="col m6 s12">
 						<div class="input-field" class="validate" required="" aria-required="true">
-							<input id="contact" value="<?php echo $val->Cust_phone ?>" type="number" name="contactno" class="validate">
+							<input id="contact" value="<?php echo $val->Cust_phone ?>" type="text" name="contactno" class="validate">
 							<label for="contact"> Contact number</label>
 						</div>
 					</div>
