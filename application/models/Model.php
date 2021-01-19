@@ -132,13 +132,13 @@ class Model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-    public function GetDispatchOrderDetails($id){
+    public function GetDispatchOrderDetails($id)
+    {
         $this->db->select('*');
         $this->db->from('dispatch');
         $this->db->where('OrderID', $id);
         $query = $this->db->get();
         return $query->result();
-
     }
     public function DispatchOrder($data)
     {
@@ -180,7 +180,7 @@ class Model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('order_items');
-        
+
         $this->db->order_by("OrderID desc");
         if ($data != NULL) {
             $this->db->where($data);
@@ -360,12 +360,21 @@ class Model extends CI_Model
         return $query;
     }
 
+    public function GetImageDetails($ProdID)
+    {
 
+        $this->db->select('*');
+        $this->db->from('productimage');
+        $this->db->where('ProductID',$ProdID);
+        $query = $this->db->get()->result();
+        return $query;
+    }
     public function DeleteProd($id)
     {
-        $tables = array('sizes', 'productimage', 'balancesheet', 'products');
+        $tables = array('balancesheet', 'sizes', 'productimage', 'products');
         $this->db->where('ProductID', $id);
         $this->db->delete($tables);
+
     }
     public function RevokeUserAccess($id)
     {
@@ -394,22 +403,22 @@ class Model extends CI_Model
         $this->db->update('users', $data);
     }
 
-    public function SendMsg($no,$Company,$TrackNo)
+    public function SendMsg($no, $Company, $TrackNo)
     {
 
         // Account details
         $apiKey = urlencode('KtVYnTbjtmQ-yGIPPc7DdU3XYASutSSp4aizOSZmGt');
 
         // Message details
-        $contact = '91'.$no;
+        $contact = '91' . $no;
         $numbers = array($contact);
         $sender = urlencode('SHTRND');
         $com = urlencode($Company);
-        $Track= urlencode($TrackNo);
-    
+        $Track = urlencode($TrackNo);
+
 
         // $message = rawurlencode('Shipped: Your package has been shipped successfully.Courier Partner:'.$com.'Tracking Number:'.$Track.'Thank you for shopping with us.');
-        $message = rawurlencode('Shipped: Your package has been shipped successfully.%nCourier Partner: '.$com.'%nTracking Number: '.$Track.'%nThank you for shopping with us.');
+        $message = rawurlencode('Shipped: Your package has been shipped successfully.%nCourier Partner: ' . $com . '%nTracking Number: ' . $Track . '%nThank you for shopping with us.');
         // $message = rawurlencode('Hello Testing');
         // https://api.textlocal.in/send/?apikey=KtVYnTbjtmQ-yGIPPc7DdU3XYASutSSp4aizOSZmGt&numbers=918078662861&message=Shipped: Your package has been shipped successfully.%nCourier Partner: x%nTracking Number: x%nThank you for shopping with us.&sender=SHTRND
 
@@ -428,8 +437,5 @@ class Model extends CI_Model
 
         // Process your response here
         return $response;
-
-
-        
     }
 }
