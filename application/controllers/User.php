@@ -413,9 +413,9 @@ class User extends CI_Controller
 	public function DispatchDetails($id)
 	{
 		if ($this->session->has_userdata('user') != Null) {
-		
+
 			$data['dispatchDetails'] = $this->Model->GetDispatchOrderDetails($id);
-		
+
 			$data['details'] = $this->Model->GetOrderDetails($id);
 			$head['title'] = 'Order Dispatch';
 			$this->load->view('assets/header.php', $head);
@@ -648,10 +648,20 @@ class User extends CI_Controller
 
 	public function DeleteProduct($id)
 	{
+
+		$pDetails = $this->Model->GetImageDetails($id);
+		$path = $pDetails[0]->ImagePath;
+		$ImageName = $pDetails[0]->ImageName;
+		// echo $userId . " / ". $ProductId;
+		$Fullpath = "." . $path  . $ImageName;
+		if (unlink($Fullpath)) {
+			$this->session->set_flashdata("Success", "File Deleted Successfully");
+		} 
 		$this->Model->DeleteProd($id);
-		$this->session->set_flashdata("Success", "Order Deleted Successfully");
+		$this->session->set_flashdata("Success", "Product Deleted Successfully");
 		redirect("User/ManageProducts");
 	}
+
 	public function printDetails($id)
 	{
 		if ($id != NULL) {
