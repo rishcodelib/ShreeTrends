@@ -1,6 +1,6 @@
 application/config/config.php
 application/config/database.php
-# assets/images/uploads/
+assets/images/uploads/
 assets/images/Others/
 Project_Details/
 Ecommerce
