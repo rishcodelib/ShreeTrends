@@ -16,13 +16,13 @@
                     <div class="col m6 s12">
                         <div class="checkout">
                             <div class="input-field">
-                                <input id="phone" type="tel" name="cust_phone[]" class="validate " minlength="10" maxlength="10"  required>
+                                <input id="phone" type="tel" name="cust_phone[]" class="validate " minlength="10" maxlength="10" required>
                                 <label for="phone">Customer Contact Number</label>
                             </div>
-                            <div class="input-field">
-                                <input id="phone" type="tel" name="cust_phone[]"minlength="10" maxlength="10"  class="validate" >
+                            <!-- <div class="input-field">
+                                <input id="phone" type="tel" name="cust_phone[]" minlength="10" maxlength="10" class="validate">
                                 <label for="phone">Alternate Customer Contact Number</label>
-                            </div>
+                            </div> -->
                             <div class="input-field">
                                 <textarea id="textarea1" name="cust_address" class="materialize-textarea" required></textarea>
                                 <label for="textarea1"> Customer Delivery Address</label>
