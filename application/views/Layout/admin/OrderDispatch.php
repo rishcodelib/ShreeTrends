@@ -4,7 +4,11 @@
 			<h3>Update Order</h3>
 		</div>
 		<?php
-		print_r($details[0]->status);
+		// print_r($details[0]->status);
+		$uid = $details[0]->UserID;
+		$VendorNo = ($this->Model->GetUserDetails($uid)[0]->ContactNo);
+		echo ($VendorNo);
+
 
 
 		foreach ($details as $val) { ?>
@@ -23,6 +27,7 @@
 							<label for="vendor-id"> Vendor ID</label>
 						</div>
 					</div>
+					
 				</div>
 
 				<!-- <div class="row">
@@ -41,16 +46,22 @@
 				</div> -->
 
 				<div class="row">
-					<div class="col m6 s12">
+					<div class="col m4 s12">
 						<div class="input-field" class="validate" required="" aria-required="true">
 							<input disabled value="<?php echo $val->CustomerName ?>" id="name" type="text" name="name" class="validate">
 							<label for="name"> Customer Name</label>
 						</div>
 					</div>
-					<div class="col m6 s12">
+					<div class="col m4 s12">
 						<div class="input-field" class="validate" required="" aria-required="true">
 							<input id="contact" value="<?php echo $val->Cust_phone ?>" type="text" name="contactno" class="validate">
-							<label for="contact"> Contact number</label>
+							<label for="contact">Customer Contact number</label>
+						</div>
+					</div>
+					<div class="col m4 s12">
+						<div class="input-field" class="validate" required="" aria-required="true">
+							<input id="contact" value="<?php echo $VendorNo ?>" type="text" name="vContactno" class="validate">
+							<label for="contact"> Vendor Contact number</label>
 						</div>
 					</div>
 				</div>

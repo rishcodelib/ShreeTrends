@@ -390,8 +390,9 @@ class User extends CI_Controller
 				$rish['Consignment_No'] = $this->input->post('ConsNbr');
 				$rish['Company_name'] = $this->input->post('company');
 				$Contactno = $this->input->post('contactno');
+				$vContactno = $this->input->post('vContactno');
 				$this->Model->DispatchOrder($rish);
-				$msg = $this->Model->SendMsg($Contactno, $rish['Company_name'], $rish['Consignment_No']);
+				$msg = $this->Model->SendMsg($Contactno, $vContactno, $rish['Company_name'], $rish['Consignment_No']);
 
 
 				$this->session->set_flashdata('Success', 'Tracking ID is Added Successfully SMS Status:' . $msg);
