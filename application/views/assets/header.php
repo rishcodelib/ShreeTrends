@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl.theme.default.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 	<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
 
 </head>

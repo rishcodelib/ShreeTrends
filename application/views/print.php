@@ -7,7 +7,8 @@
 
     }
 </style>
-<script src="<?php echo base_url(); ?>assets/js/html2canvas.min.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/js/html2canvas.min.js"></script> -->
+
 
 <?php 
 // print_r($details);
