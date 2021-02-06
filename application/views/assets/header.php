@@ -15,8 +15,10 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/owl.theme.default.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
-	<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
+	 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+	<!-- <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
+	 -->
 
 
 </head>

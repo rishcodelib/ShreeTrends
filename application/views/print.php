@@ -7,39 +7,38 @@
 
     }
 </style>
-<!-- <script src="<?php echo base_url(); ?>assets/js/html2canvas.min.js"></script> -->
+<script src="<?php echo base_url(); ?>assets/js/html2canvas.js"></script>
 
 
-<?php 
+<?php
 // print_r($details);
 // die();
 
 foreach ($details as $val) { ?>
 
-    <hr> 
+    <hr>
 
     <div class="print" id="capture">
         <div class="htmlData">
 
-           
-            <?php echo $val->ProductName . "(" . $val->size . ")   x ". $val->quantity . " Qty." ?>
+
+            <?php echo $val->ProductName . "(" . $val->size . ")   x " . $val->quantity . " Qty." ?>
             <p>To <br>
                 <?php echo $val->Cust_Address ?> <br>
                 Contact: <?php echo $val->Cust_phone ?> <br>
             </p>
         </div>
     </div>
+
     <!-- <hr> -->
     <script>
         $(document).ready(function() {
-
-            html2canvas(document.querySelector("#capture")).then(canvas => {
+            html2canvas(document.querySelector("#capture")).then((canvas => {
                 canvas.id = "mycanvas";
                 document.body.appendChild(canvas)
                 $(".htmlData").hide();
                 downloadCanvas();
-
-            });
+            }));
         });
 
         function downloadCanvas() {
